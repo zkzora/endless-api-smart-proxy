@@ -8,11 +8,6 @@ Web2 systems communicate through standard REST APIs.
 The proxy handles transaction creation, signing, gas payment,
 and interaction with Move smart modules on Endless.
 
-This project focuses on lowering the entry barrier for Web2 developers
-and accelerating real-world adoption of Endless.
-
----
-
 ## Problem Statement
 
 Web2 developers want to leverage blockchain properties such as:
@@ -25,10 +20,6 @@ However, adoption is blocked by:
 - Wallet and private key management
 - Gas fees and transaction lifecycle
 - Blockchain-specific tooling
-
-As a result, most Web2 applications never reach on-chain systems.
-
----
 
 ## Solution Overview
 
@@ -46,10 +37,6 @@ The Smart-Proxy:
 - Submits Move transactions to Endless
 - Returns transaction proofs to Web2
 
-This enables seamless Web2 → Web3 integration.
-
----
-
 ## High-Level Architecture
 
 Web2 App
@@ -66,16 +53,23 @@ Endless Smart-Proxy
   v
 Endless L1 Network
 
----
-
 ## Core API Flow (Receipt Anchoring Example)
 
-### 1. Web2 Application Request
+### Request
 
 POST /v1/anchor/receipt
 
 Headers:
+x-api-key: app_demo_key
 
-
-
-
+Body:
+```json
+{
+  "appId": "demo-cashier-001",
+  "receipt": {
+    "orderId": "INV-10291",
+    "amount": 125000,
+    "currency": "IDR",
+    "timestamp": 1736000000
+  }
+}

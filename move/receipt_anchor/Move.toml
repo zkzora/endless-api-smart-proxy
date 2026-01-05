@@ -1,0 +1,14 @@
+[package]
+name = "receipt_anchor"
+version = "0.1.0"
+authors = ["Endless Smart-Proxy Demo"]
+
+[addresses]
+receipt_anchor = "_"
+
+[dependencies]
+EndlessFramework = {
+  git = "https://github.com/endless-network/endless-core.git",
+  subdir = "crates/endless-framework",
+  rev = "main"
+}
